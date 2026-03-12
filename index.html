@@ -4,52 +4,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Server Countdown</title>
+    <title>SuperAwesome - Minecraft Server Hosting</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/x-icon" href="fav.png">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="background-overlay"></div>
+    <div class="background-wrapper">
+        <div class="bg-filter"></div>
+    </div>
 
-    <main class="container">
-        <header class="server-header">
-            <h1 class="glitch-text" data-text="NEON MC SERVER">SERVERN SMUT</h1>
-            <p class="tagline">Oplev fremtidens Minecraft</p>
-        </header>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <!-- Fallback to emoji if img fails to load -->
+                <img src="fav.png" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" class="logo-img">
+                <span style="display:none;">👾</span>
+                <span class="logo-text">SuperAwesome</span>
+            </a>
 
-        <section class="countdown-container">
-            <div class="countdown-title">Serveren åbner om:</div>
-            <div id="countdown" class="countdown-timer">
-                <div class="timer-item">
-                    <span id="days" class="number">00</span>
-                    <span class="label">Dage</span>
-                </div>
-                <div class="timer-item">
-                    <span id="hours" class="number">00</span>
-                    <span class="label">Timer</span>
-                </div>
-                <div class="timer-item">
-                    <span id="minutes" class="number">00</span>
-                    <span class="label">Minutter</span>
-                </div>
-                <div class="timer-item">
-                    <span id="seconds" class="number">00</span>
-                    <span class="label">Sekunder</span>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">Hjem</a>
+                <a href="#" class="nav-link dropdown">Butik <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+                <a href="#" class="nav-link">Servere</a>
+                <a href="#" class="nav-link">Guides</a>
+                <a href="#" class="nav-link">Team</a>
+                <a href="#" class="nav-link">Dashboard</a>
+                <a href="#" class="nav-link dropdown">Ansøgning <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+            </div>
+
+            <div class="nav-user">
+                <img class="user-avatar" src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Broskill" alt="Broskill">
+                <div class="user-info">
+                    <span class="user-name">Broskill</span>
+                    <span class="user-balance"><span class="status-dot"></span> 288.383</span>
                 </div>
             </div>
-        </section>
+            
+            <button class="mobile-menu-btn">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </nav>
 
-        <footer class="social-links">
-            <a href="#" class="social-btn discord">Discord</a>
-            <a href="#" class="social-btn store">Store</a>
-        </footer>
+    <!-- Main Hero Section -->
+    <main class="hero-section">
+        <div class="hero-container">
+            
+            <!-- Left Content Column -->
+            <div class="hero-content">
+                <h1 class="hero-title">SuperAwesome</h1>
+                <p class="hero-description">
+                    Velkommen til SuperAwesome's hjemmeside. SuperAwesome er en hostingtjeneste,
+                    der gør det muligt for spillere at oprette og administrere deres egne Minecraft-servere nemt og uden behov for teknisk ekspertise.
+                </p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon lightning">
+                            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.381z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <span class="feature-text">Hurtig oprettelse</span>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon puzzle">
+                            <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1h1a2 2 0 012 2v1h1a1 1 0 010 2h-1v1a2 2 0 01-2 2h-1v1a1 1 0 01-2 0v-1H8v1a1 1 0 01-2 0v-1H5a2 2 0 01-2-2v-1H2a1 1 0 010-2h1v-1a2 2 0 012-2h1V3a1 1 0 011-1h1a1 1 0 001-1z"></path></svg>
+                        </div>
+                        <span class="feature-text">Egne plugins</span>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon megaphone">
+                            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <span class="feature-text">Gratis reklame</span>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon server">
+                            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <span class="feature-text">SFTP adgang</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="#" class="btn btn-dark">Join SuperAwesome.dk!</a>
+                    <a href="#" class="btn btn-discord">Discord</a>
+                    <a href="#" class="btn btn-shop">Butik</a>
+                </div>
+            </div>
+
+            <!-- Right Card Column -->
+            <div class="hero-card-container">
+                <div class="glow-effect"></div>
+                <div class="server-card">
+                    <div class="card-content">
+                        <div class="card-text">
+                            <span class="card-subtitle">SUPERAWESOME.DK</span>
+                            <h3 class="card-title"><span class="highlight">SuperAwesome</span> Din server hosting platform Lav din helt egen Minecraft server gratis!</h3>
+                            <div class="online-status">
+                                158 spillere online
+                            </div>
+                        </div>
+                        <div class="card-logo">
+                            <div class="logo-box">
+                                <span class="super">SUPER</span>
+                                <span class="awesome">AWESOME</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
+
+    <!-- Popular Servers Section -->
+    <section class="popular-servers">
+        <h2 class="section-title">Vores mest populære servere</h2>
+        <!-- Server cards would go here -->
+    </section>
 
     <script src="script.js"></script>
 </body>
