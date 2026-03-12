@@ -1,1 +1,51 @@
-Hej Dette er min Hjemmeside :)
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Server Countdown</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <main class="container">
+        <header class="server-header">
+            <h1 class="glitch-text" data-text="NEON MC SERVER">NEON MC SERVER</h1>
+            <p class="tagline">Oplev fremtidens Minecraft</p>
+        </header>
+
+        <section class="countdown-container">
+            <div class="countdown-title">Serveren åbner om:</div>
+            <div id="countdown" class="countdown-timer">
+                <div class="timer-item">
+                    <span id="days" class="number">00</span>
+                    <span class="label">Dage</span>
+                </div>
+                <div class="timer-item">
+                    <span id="hours" class="number">00</span>
+                    <span class="label">Timer</span>
+                </div>
+                <div class="timer-item">
+                    <span id="minutes" class="number">00</span>
+                    <span class="label">Minutter</span>
+                </div>
+                <div class="timer-item">
+                    <span id="seconds" class="number">00</span>
+                    <span class="label">Sekunder</span>
+                </div>
+            </div>
+        </section>
+
+        <footer class="social-links">
+            <a href="#" class="social-btn discord">Discord</a>
+            <a href="#" class="social-btn store">Store</a>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
