@@ -432,3 +432,46 @@ main {
 .submit-btn:active {
   transform: scale(0.98);
 }
+
+/* Discord Auth Styles */
+.discord-btn {
+  background-color: #5865F2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.discord-btn:hover {
+  background-color: #4752C4;
+}
+
+.discord-btn:active {
+  transform: scale(0.98);
+}
+
+.rank-badge {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  margin-left: 6px;
+}
+
+.rank-badge.admin {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
+
+.rank-badge.medlem {
+  background-color: #dce7ff;
+  color: #3b82f6;
+}
