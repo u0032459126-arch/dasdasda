@@ -5,7 +5,7 @@
   --text-muted: #6b7280;
   --border-color: #f3f4f6;
   --nav-link: #374151;
-  
+
   --red-bg: #fee2e2;
   --red-text: #ef4444;
   --green-bg: #dcfce7;
@@ -27,7 +27,7 @@ body {
 
 header {
   background-color: #ffffff;
-  border-bottom: 1px solid rgba(0,0,0,0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .header-container {
@@ -168,6 +168,7 @@ main {
   .server-cards {
     grid-template-columns: 1fr;
   }
+
   .header-container {
     flex-direction: column;
     gap: 16px;
