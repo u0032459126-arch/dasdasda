@@ -22,8 +22,8 @@
             
             <nav class="nav-right">
                 <div class="nav-links">
-                    <a href="#" class="nav-link">Hjem</a>
-                    <a href="#" class="nav-link">Admin Panel</a>
+                    <a href="#" class="nav-link" id="nav-home">Hjem</a>
+                    <a href="#" class="nav-link" id="nav-admin">Admin Panel</a>
                 </div>
                 
                 <div class="user-badges">
@@ -47,40 +47,59 @@
         </div>
     </header>
 
-    <main>
+    <!-- HJEMME VIEW -->
+    <main id="home-view">
         <div class="main-header">
             <h1>Server der er <span class="text-green">aktiv</span></h1>
             <p class="subtitle">Her kan du se overblikket over alle de aktive Minecraft servere i vores netværk.</p>
         </div>
 
-        <div class="server-cards">
-            <!-- Card 1 -->
-            <div class="server-card">
-                <div class="card-info">
-                    <div class="card-header">
-                        <h3 class="server-name">Ny Server</h3>
-                        <span class="badge inaktiv"><span class="dot"></span> INAKTIV</span>
-                    </div>
-                    <p class="server-desc">Beskrivelse her...</p>
-                </div>
-                <div class="card-icon placeholder-icon">?</div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="server-card">
-                <div class="card-info">
-                    <div class="card-header">
-                        <h3 class="server-name">Test server</h3>
-                        <span class="badge aktiv"><span class="dot"></span> AKTIV</span>
-                    </div>
-                    <p class="server-desc">asdsadsads</p>
-                </div>
-                <div class="card-icon mc-icon">
-                    <img src="https://minotar.net/helm/Steve/48.png" alt="Card Minecraft Icon" />
-                </div>
-            </div>
+        <div class="server-cards" id="server-list-container">
+            <!-- Cards generated dynamically via JavaScript -->
         </div>
     </main>
+
+    <!-- ADMIN PANEL VIEW -->
+    <main id="admin-view" class="hidden">
+        <div class="main-header">
+            <h1>Admin <span class="text-green">Panel</span></h1>
+            <p class="subtitle">Tilføj nye servere til oversigten her.</p>
+        </div>
+
+        <div class="admin-card">
+            <form id="add-server-form">
+                <div class="form-group">
+                    <label for="server-name-input">Server Navn</label>
+                    <input type="text" id="server-name-input" required placeholder="F.eks. Survival">
+                </div>
+                <div class="form-group">
+                    <label for="server-desc-input">Beskrivelse</label>
+                    <input type="text" id="server-desc-input" required placeholder="Kort beskrivelse...">
+                </div>
+                <div class="form-group">
+                    <label for="server-status-input">Status</label>
+                    <select id="server-status-input">
+                        <option value="aktiv">Aktiv</option>
+                        <option value="inaktiv">Inaktiv</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Tilføj Server</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- MODAL -->
+    <div id="server-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Forbind til server</h2>
+            <p class="modal-desc">Kopier kommandoen nedenfor og indsæt i Minecraft for at forbinde direkte.</p>
+            <div class="command-box">
+                <code id="server-command">/server navn</code>
+                <button id="copy-btn">Kopier</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
