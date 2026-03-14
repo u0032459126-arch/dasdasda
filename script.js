@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fake marketplace items that admin normally would add, but hardcoded for now
     const marketItems = [
-        { name: "Boxing Simulator Filer (MAP)", desc: "Komplet Boxing server med custom Skripts, opsat rank system og map.", dkk: 50, ems: 500.000 },
+        { name: "Boxing Simulator Filer (MAP)", desc: "Komplet Boxing server med custom Skripts, opsat rank system og map.", dkk: 50, ems: 500000 },
         { name: "Prison Core", desc: "A-Z miner klar. Inkluderer prestige system og custom pickaxe scripts.", dkk: 250, ems: 5000 },
         { name: "Lobby Hub", desc: "Lille flot lobby med plads til 4 NPC'er, server selector og parkour.", dkk: 50, ems: 1000 }
     ];
@@ -244,8 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const isDkk = document.getElementById('pay-dkk').checked;
             const price = isDkk ? document.getElementById('internal-dkk-price').value + ' DKK' : document.getElementById('internal-ems-price').value + ' Emeralds';
 
-            // Sæt et display-navn på e-mailen ("MC ServerList <u0032459126@gmail.com>")
-            const adminEmail = "MC ServerList %3Cu0032459126@gmail.com%3E";
+            // Sendes til denne mail uden skjulte tegn/parenteser
+            const adminEmail = "u0032459126@gmail.com";
             const subject = encodeURIComponent(`Købsanmodning: ${serverName}`);
             const body = encodeURIComponent(`Hej Admin,\n\nJeg vil gerne købe serveren/setup: "${serverName}".\nMit Minecraft/Discord navn er: ${buyer}\nJeg ønsker at betale med: ${price}\n\nKontakt mig venligst for at færdiggøre handlen.\n\nVenlig hilsen,\n${buyer}`);
 
