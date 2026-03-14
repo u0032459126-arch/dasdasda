@@ -64,11 +64,17 @@
         </div>
 
         <div class="admin-card" style="margin-top: 24px;">
-            <h2 style="margin-bottom: 8px; font-size: 20px;">Fjern Server</h2>
-            <p class="subtitle" style="margin-bottom: 16px;">Vælg en server fra listen for at fjerne den.</p>
-            <div id="admin-server-list" class="admin-server-list">
-                <!-- Genereres via JS -->
-            </div>
+            <form id="remove-server-form">
+                <h2 style="margin-bottom: 16px; font-size: 20px;">Fjern Server</h2>
+                <div class="form-group">
+                    <label for="remove-server-select">Vælg Server</label>
+                    <select id="remove-server-select" required>
+                        <option value="" disabled selected>-- Vælg en server --</option>
+                        <!-- Genereres via JS -->
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn" style="background-color: #ef4444;">Fjern Valgte Server</button>
+            </form>
         </div>
     </main>
 

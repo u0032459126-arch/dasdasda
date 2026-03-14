@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const copyBtn = document.getElementById('copy-btn');
 
     const addServerForm = document.getElementById('add-server-form');
-    const adminServerList = document.getElementById('admin-server-list');
+    const removeServerForm = document.getElementById('remove-server-form');
+    const removeServerSelect = document.getElementById('remove-server-select');
 
     // --- Render Logic (Only runs on index.html) ---
     if (serverListContainer) {
@@ -105,43 +106,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Admin Form Logic (Only runs on admin.html) ---
-    if (adminServerList) {
-        function renderAdminServers() {
-            adminServerList.innerHTML = '';
-            if (servers.length === 0) {
-                adminServerList.innerHTML = '<p class="server-desc">Ingen servere fundet.</p>';
-                return;
-            }
-
+    if (removeServerForm && removeServerSelect) {
+        function updateRemoveOptions() {
+            removeServerSelect.innerHTML = '<option value="" disabled selected>-- Vælg en server --</option>';
             servers.forEach((server, index) => {
-                const item = document.createElement('div');
-                item.className = 'admin-server-item';
-                
-                const badgeClass = server.status === 'aktiv' ? 'aktiv' : 'inaktiv';
-                const badgeText = server.status === 'aktiv' ? 'AKTIV' : 'INAKTIV';
-
-                item.innerHTML = `
-                    <div class="admin-item-info">
-                        <strong>${server.name}</strong>
-                        <span class="badge ${badgeClass}"><span class="dot"></span> ${badgeText}</span>
-                    </div>
-                    <button class="remove-btn" title="Fjern Server" data-index="${index}">Fjern</button>
-                `;
-                adminServerList.appendChild(item);
-            });
-
-            document.querySelectorAll('.remove-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const index = e.target.getAttribute('data-index');
-                    if (confirm(`Er du sikker på at du vil fjerne serveren "${servers[index].name}"?`)) {
-                        servers.splice(index, 1);
-                        localStorage.setItem('mc_servers', JSON.stringify(servers));
-                        renderAdminServers();
-                    }
-                });
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${server.name} (${server.status})`;
+                removeServerSelect.appendChild(option);
             });
         }
-        renderAdminServers();
+        updateRemoveOptions();
+
+        removeServerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const selectedIndex = removeServerSelect.value;
+            if (selectedIndex !== "") {
+                const serverName = servers[selectedIndex].name;
+                if (confirm(`Er du sikker på at du vil fjerne serveren "${serverName}"?`)) {
+                    servers.splice(selectedIndex, 1);
+                    localStorage.setItem('mc_servers', JSON.stringify(servers));
+                    updateRemoveOptions();
+                }
+            }
+        });
     }
 
     if (addServerForm) {
