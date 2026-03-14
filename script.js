@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const buyModal = document.getElementById('buy-modal');
     const closeBuyModalBtn = document.querySelector('.close-buy-modal');
     const buyForm = document.getElementById('buy-form');
-    
+
     // Fake marketplace items that admin normally would add, but hardcoded for now
     const marketItems = [
         { name: "Skyblock Setup v2", desc: "Komplet skyblock server med custom plugins, opsat rank system og spawn.", dkk: 150, ems: 3000 },
@@ -173,11 +173,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (marketplaceListContainer) {
         function renderMarketplace() {
             marketplaceListContainer.innerHTML = '';
-            
+
             marketItems.forEach((item, index) => {
                 const card = document.createElement('div');
                 card.className = 'server-card marketplace-card';
-                
+
                 card.innerHTML = `
                     <div class="card-info" style="width: 100%;">
                         <div class="card-header" style="justify-content: space-between; width: 100%;">
@@ -204,28 +204,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.addEventListener('click', (e) => {
                     const index = e.target.getAttribute('data-index');
                     const item = marketItems[index];
-                    
+
                     document.getElementById('buy-server-name').innerText = item.name;
                     document.getElementById('internal-dkk-price').value = item.dkk;
                     document.getElementById('internal-ems-price').value = item.ems;
-                    
+
                     // Reset to DKK by default on open
                     document.getElementById('pay-dkk').checked = true;
                     updatePriceDisplay();
-                    
+
                     buyModal.classList.remove('hidden');
                 });
             });
         }
-        
+
         renderMarketplace();
-        
+
         // Handle Price display toggle
         const updatePriceDisplay = () => {
             const isDkk = document.getElementById('pay-dkk').checked;
             const dkkVal = document.getElementById('internal-dkk-price').value;
             const emsVal = document.getElementById('internal-ems-price').value;
-            
+
             if (isDkk) {
                 document.getElementById('buy-price-display').innerHTML = `💵 ${dkkVal} DKK`;
             } else {
@@ -243,17 +243,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const serverName = document.getElementById('buy-server-name').innerText;
             const isDkk = document.getElementById('pay-dkk').checked;
             const price = isDkk ? document.getElementById('internal-dkk-price').value + ' DKK' : document.getElementById('internal-ems-price').value + ' Emeralds';
-            
-            const adminEmail = "u0032459126@gmail.com"; 
+
+            const adminEmail = "u0032459126@gmail.com";
             const subject = encodeURIComponent(`Købsanmodning: ${serverName}`);
             const body = encodeURIComponent(`Hej Admin,\n\nJeg vil gerne købe serveren/setup: "${serverName}".\nMit Minecraft/Discord navn er: ${buyer}\nJeg ønsker at betale med: ${price}\n\nKontakt mig venligst for at færdiggøre handlen.\n\nVenlig hilsen,\n${buyer}`);
-            
+
             window.location.href = `mailto:${adminEmail}?subject=${subject}&body=${body}`;
-            
+
             buyModal.classList.add('hidden');
             buyForm.reset();
         });
-        
+
         // Modal close
         closeBuyModalBtn.addEventListener('click', () => {
             buyModal.classList.add('hidden');
