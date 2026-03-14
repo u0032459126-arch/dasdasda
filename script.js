@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${iconHtml}
                 `;
 
-                // Server click -> Open modal
+                // Server click -> Open moda
                 card.addEventListener('click', () => {
                     if (serverCommandEl && modal) {
                         serverCommandEl.innerText = `/server ${server.name}`;
