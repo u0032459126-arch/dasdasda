@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const isDkk = document.getElementById('pay-dkk').checked;
             const price = isDkk ? document.getElementById('internal-dkk-price').value + ' DKK' : document.getElementById('internal-ems-price').value + ' Emeralds';
             
-            const adminEmail = "admin@mcserverlist.dk"; // UDskift med din sande mail
+            const adminEmail = "u0032459126@gmail.com"; 
             const subject = encodeURIComponent(`Købsanmodning: ${serverName}`);
             const body = encodeURIComponent(`Hej Admin,\n\nJeg vil gerne købe serveren/setup: "${serverName}".\nMit Minecraft/Discord navn er: ${buyer}\nJeg ønsker at betale med: ${price}\n\nKontakt mig venligst for at færdiggøre handlen.\n\nVenlig hilsen,\n${buyer}`);
             
