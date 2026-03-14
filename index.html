@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC ServerList</title>
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="fav.png" type="image/png">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-mc">MC</span>
+                <span class="logo-text">ServerList</span>
+            </div>
+
+            <nav class="nav-right">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Hjem</a>
+                    <a href="admin.html" class="nav-link">Admin Panel</a>
+                </div>
+
+                <div class="user-badges">
+                    <a href="#" class="badge-pill">
+                        <img src="https://ui-avatars.com/api/?name=B&background=0284c7&color=fff&rounded=true&size=24"
+                            alt="blue icon">
+                        birkpb
+                    </a>
+                    <a href="#" class="badge-pill">
+                        <img src="https://minotar.net/helm/Steve/24.png" alt="mc face">
+                        BirkPB
+                    </a>
+                    <button class="logout-btn" title="Log ud">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-header">
+            <h1>Server der er <span class="text-green">aktiv</span></h1>
+            <p class="subtitle">Her kan du se overblikket over alle de aktive Minecraft servere i vores netværk.</p>
+        </div>
+
+        <div class="server-cards" id="server-list-container">
+            <!-- Cards generated dynamically via JavaScript -->
+        </div>
+    </main>
+
+    <!-- MODAL -->
+    <div id="server-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Forbind til server</h2>
+            <p class="modal-desc">Kopier kommandoen nedenfor og indsæt i Minecraft for at forbinde direkte.</p>
+            <div class="command-box">
+                <code id="server-command">/server navn</code>
+                <button id="copy-btn">Kopier</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
