@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fake marketplace items that admin normally would add, but hardcoded for now
     const marketItems = [
-        { name: "Skyblock Setup v2", desc: "Komplet skyblock server med custom plugins, opsat rank system og spawn.", dkk: 150, ems: 3000 },
+        { name: "Boxing Simulator Filer (MAP)", desc: "Komplet Boxing server med custom Skripts, opsat rank system og map.", dkk: 50, ems: 500.000 },
         { name: "Prison Core", desc: "A-Z miner klar. Inkluderer prestige system og custom pickaxe scripts.", dkk: 250, ems: 5000 },
         { name: "Lobby Hub", desc: "Lille flot lobby med plads til 4 NPC'er, server selector og parkour.", dkk: 50, ems: 1000 }
     ];
