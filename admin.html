@@ -42,6 +42,7 @@
         </div>
 
         <div class="admin-card">
+            <h2 style="margin-bottom: 16px; font-size: 20px;">Tilføj Server</h2>
             <form id="add-server-form">
                 <div class="form-group">
                     <label for="server-name-input">Server Navn</label>
@@ -60,6 +61,14 @@
                 </div>
                 <button type="submit" class="submit-btn">Tilføj Server</button>
             </form>
+        </div>
+
+        <div class="admin-card" style="margin-top: 24px;">
+            <h2 style="margin-bottom: 8px; font-size: 20px;">Fjern Server</h2>
+            <p class="subtitle" style="margin-bottom: 16px;">Vælg en server fra listen for at fjerne den.</p>
+            <div id="admin-server-list" class="admin-server-list">
+                <!-- Genereres via JS -->
+            </div>
         </div>
     </main>
 

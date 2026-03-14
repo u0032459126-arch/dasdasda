@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const copyBtn = document.getElementById('copy-btn');
 
     const addServerForm = document.getElementById('add-server-form');
+    const adminServerList = document.getElementById('admin-server-list');
 
     // --- Render Logic (Only runs on index.html) ---
     if (serverListContainer) {
@@ -104,6 +105,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Admin Form Logic (Only runs on admin.html) ---
+    if (adminServerList) {
+        function renderAdminServers() {
+            adminServerList.innerHTML = '';
+            if (servers.length === 0) {
+                adminServerList.innerHTML = '<p class="server-desc">Ingen servere fundet.</p>';
+                return;
+            }
+
+            servers.forEach((server, index) => {
+                const item = document.createElement('div');
+                item.className = 'admin-server-item';
+                
+                const badgeClass = server.status === 'aktiv' ? 'aktiv' : 'inaktiv';
+                const badgeText = server.status === 'aktiv' ? 'AKTIV' : 'INAKTIV';
+
+                item.innerHTML = `
+                    <div class="admin-item-info">
+                        <strong>${server.name}</strong>
+                        <span class="badge ${badgeClass}"><span class="dot"></span> ${badgeText}</span>
+                    </div>
+                    <button class="remove-btn" title="Fjern Server" data-index="${index}">Fjern</button>
+                `;
+                adminServerList.appendChild(item);
+            });
+
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = e.target.getAttribute('data-index');
+                    if (confirm(`Er du sikker på at du vil fjerne serveren "${servers[index].name}"?`)) {
+                        servers.splice(index, 1);
+                        localStorage.setItem('mc_servers', JSON.stringify(servers));
+                        renderAdminServers();
+                    }
+                });
+            });
+        }
+        renderAdminServers();
+    }
+
     if (addServerForm) {
         addServerForm.addEventListener('submit', (e) => {
             e.preventDefault();

@@ -450,3 +450,53 @@ main {
 .submit-btn:active {
   transform: scale(0.98);
 }
+
+/* Fjern Server UI */
+.admin-server-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-server-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.admin-item-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-item-info strong {
+  font-size: 15px;
+  color: var(--text-main);
+}
+
+.remove-btn {
+  background-color: #fee2e2;
+  color: #ef4444;
+  border: 1px solid #fca5a5;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.remove-btn:hover {
+  background-color: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}
+
+.remove-btn:active {
+  transform: scale(0.95);
+}
