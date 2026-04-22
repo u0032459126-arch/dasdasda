@@ -38,10 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Just some varied icons
                 let iconHtml = `<div class="card-icon placeholder-icon">?</div>`;
-                if (server.name.toLowerCase().includes('test')) {
+                const faceName = server.owner ? server.owner : server.name;
+                if (faceName.toLowerCase().includes('test')) {
                     iconHtml = `<div class="card-icon mc-icon"><img src="https://minotar.net/helm/Steve/48.png" alt="Icon" /></div>`;
-                } else if (server.name.toLowerCase() !== 'ny server') {
-                    iconHtml = `<div class="card-icon mc-icon"><img src="https://minotar.net/helm/${encodeURIComponent(server.name)}/48.png" alt="Icon" onerror="this.src='https://minotar.net/helm/Steve/48.png'" /></div>`;
+                } else if (faceName.toLowerCase() !== 'ny server') {
+                    iconHtml = `<div class="card-icon mc-icon"><img src="https://minotar.net/helm/${encodeURIComponent(faceName)}/48.png" alt="Icon" onerror="this.src='https://minotar.net/helm/Steve/48.png'" /></div>`;
                 }
 
                 card.innerHTML = `
@@ -139,12 +140,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const nameInput = document.getElementById('server-name-input').value;
             const descInput = document.getElementById('server-desc-input').value;
             const statusInput = document.getElementById('server-status-input').value;
+            const ownerInput = document.getElementById('server-owner-input') ? document.getElementById('server-owner-input').value : "";
 
             // Add new server to array
             const newServer = {
                 name: nameInput,
                 desc: descInput,
-                status: statusInput
+                status: statusInput,
+                owner: ownerInput
             };
 
             servers.push(newServer);
