@@ -38,10 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Just some varied icons
                 let iconHtml = `<div class="card-icon placeholder-icon">?</div>`;
-                const faceName = server.owner ? server.owner : server.name;
-                if (faceName.toLowerCase().includes('test')) {
+                const faceName = (server.owner && server.owner.trim() !== '') ? server.owner : server.name;
+                
+                if (faceName.toLowerCase() === 'ny server' || faceName.toLowerCase() === 'test server') {
                     iconHtml = `<div class="card-icon mc-icon"><img src="https://minotar.net/helm/Steve/48.png" alt="Icon" /></div>`;
-                } else if (faceName.toLowerCase() !== 'ny server') {
+                } else {
                     iconHtml = `<div class="card-icon mc-icon"><img src="https://minotar.net/helm/${encodeURIComponent(faceName)}/48.png" alt="Icon" onerror="this.src='https://minotar.net/helm/Steve/48.png'" /></div>`;
                 }
 
